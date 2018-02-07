@@ -127,22 +127,11 @@ public class Map{
     }
     
     public boolean foundMon(int a, int b, boolean runAway){
-        System.out.println("There is a trace of monster nearby");
-        int num = (int)(2 * Math.random());
-        int strength = map[a][b].mon.str;
         runAway = false;
-        boolean encounter;
-        if(num == 0){
-            encounter = true;
-        }else{
-            encounter = false;
-        }
-        
+        boolean encounter = true;
+        System.out.println("Hero encounters a monster! The monster engages!" +
+                           "\n" + "Enter an action (run, attack):");
         while(encounter){
-            System.out.println("Hero encounters a monster! The monster engages!" +
-                           "\n" + "Enter an action (run, attack):" + "\n" + 
-                           "Monster speed: " + map[a][b].mon.speed + "\t" + 
-                           "Monster strength" + strength);
             String action = kbReader.next();
             if(charHero.hero.weapon.equals("Axe"))
             {
@@ -151,6 +140,7 @@ public class Map{
                 if(map[a][b].mon.health <= 0){
                     encounter = false;
                     System.out.println("The monster is dead.");
+                    charHero.hero.hides++;
                 }else{
                     charHero.hero.health -= map[a][b].mon.attack;
                     System.out.println("Monster attacks, Hero's health is now " + charHero.hero.health);
@@ -174,6 +164,7 @@ public class Map{
                 if(map[a][b].mon.health <= 0){
                     encounter = false;
                     System.out.println("The monster is dead.");
+                    charHero.hero.hides++;
                 }else{
                     charHero.hero.health -= map[a][b].mon.attack;
                     System.out.println("Monster attacks, Hero's health is now " + charHero.hero.health);
@@ -192,9 +183,6 @@ public class Map{
         }
         if(!runAway){
             map[a][b] = new Object("nothing");
-        }
-        if(!encounter){
-            System.out.println("The hero didn't encounter the monster");
         }
         return runAway;
     }
