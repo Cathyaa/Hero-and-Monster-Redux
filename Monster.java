@@ -1,5 +1,5 @@
 public class Monster{
-    int attack, health, speed;
+    int attack, health, speed, str;
     
     public Monster(){
         attack = (int)(Math.random() * 30 + 1) - 10;
@@ -8,6 +8,7 @@ public class Monster{
         }
         health = (int)(Math.random() * 100 + 1);
         speed = (int)(Math.random() * 4);
+        str = (int)(Math.random() * 4);
     }
     
     public String toString(){
