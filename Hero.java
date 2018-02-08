@@ -1,8 +1,8 @@
 public class Hero{
     public int attack, health, kill, x, y; 
     boolean hasArmor, hasSword;
-    Weapon dagger = new Dagger();
-    Inventory trousers = new Trousers();
+    Weapon weapon = new Dagger();
+    Inventory inventory = new Trousers();
     public int hides = 0;
     public Hero(){
         attack = (int)(Math.random() * 21 + 10);
