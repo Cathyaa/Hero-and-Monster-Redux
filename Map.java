@@ -131,6 +131,9 @@ public class Map{
         boolean encounter = true;
         System.out.println("Hero encounters a monster! The monster engages!" +
                            "\n" + "Enter an action (run, attack):");
+        if(!encounter){
+            System.out.println("The hero didn't encounter the monster");
+        }
         while(encounter){
             String action = kbReader.next();
             if(charHero.hero.weapon.equals("Axe"))
@@ -188,18 +191,24 @@ public class Map{
     }
     
     public void attack(int a, int b){
-        System.out.println("The hero attacks");
-        map[a][b].mon.health -= charHero.hero.attack;
-        if(map[a][b].mon.health <= 0){
-            System.out.println("Hero slains a monster");
-            charHero.hero.kill++;
-        }else if(charHero.hero.health <= 0){
-            System.out.println("Hero dies");
+        int miss = map[a][b].mon.speed;
+        int prob = (int)(Math.random() * 4 / miss);
+        if(prob >= 1){
+            System.out.println("The hero attacks");
+            map[a][b].mon.health -= charHero.hero.attack;
+            if(map[a][b].mon.health <= 0){
+                System.out.println("Hero slains a monster");
+                charHero.hero.kill++;
+            }else{
+                System.out.println("Monster's health is now: " + map[a][b].mon.health);
+            }
         }else{
-            System.out.println("Monster's health is now: " + map[a][b].mon.health);
+            System.out.println("Hero's attack is missed");
+            prob = (int)(Math.random() * 4 / miss);
         }
-        
-    }
+        if(charHero.hero.health <= 0){
+            System.out.println("Hero dies");
+        }
     
     public boolean run(int a, int b){
         int chance = (int)(Math.random() * 4);
