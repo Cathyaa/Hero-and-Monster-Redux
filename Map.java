@@ -258,8 +258,15 @@ public class Map{
     
     public void foundPotion(){
         System.out.println("Hero found a potion.");
-        System.out.println("Restore Hero's health to 100");
-        charHero.hero.health = 100;
+        if(charHero.hero.inventory.space>0)
+        {
+            System.out.println("Picked up the potion. Inventory space available: "+charHero.hero.inventory.space);
+            charHero.hero.inventory.space++;
+        }
+        else
+        {
+            System.out.println("No space available.");
+        }
     }
     
     public void foundSword(){
