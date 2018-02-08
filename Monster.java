@@ -13,6 +13,6 @@ public class Monster{
     
     public String toString(){
         return ("Attack: " + attack + "\n" + "Health: " + health + "\n"
-        + "speed: " + speed + "\n");
+        + "speed: " + speed + "\n" + "strength: " + str);
     }
 }
