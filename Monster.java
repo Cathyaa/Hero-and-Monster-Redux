@@ -25,4 +25,8 @@ public class Monster{
         return ("Attack: " + attack + "\n" + "Health: " + health + "\n"
         + "speed: " + speed + "\n" + "strength: " + str);
     }
+    
+    public int getStr(){
+        return str;
+    }
 }
