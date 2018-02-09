@@ -45,6 +45,7 @@ public class Map{
                 System.out.println("Farmer has been created.");
                 numFar++;
             }
+            
         }
         
         while(numPot < 2){
@@ -54,6 +55,36 @@ public class Map{
                 map[x][y] = new Object("Potion");
                 System.out.println("Potion has been created.");
                 numPot++;
+            }
+        }
+        while(true)
+        {
+            x = randomPos();
+            y = randomPos();
+            if(map[x][y].getName().equals("nothing")){
+                map[x][y] = new Object("Boss1");
+                System.out.println("First Boss has been created.");
+                break;
+            }
+        }
+        while(true)
+        {
+            x = randomPos();
+            y = randomPos();
+            if(map[x][y].getName().equals("nothing")){
+                map[x][y] = new Object("Boss2");
+                System.out.println("Second Boss has been created.");
+                break;
+            }
+        }
+        while(true)
+        {
+            x = randomPos();
+            y = randomPos();
+            if(map[x][y].getName().equals("nothing")){
+                map[x][y] = new Object("Boss3");
+                System.out.println("Third Boss has been created.");
+                break;
             }
         }
     }
