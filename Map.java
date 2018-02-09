@@ -36,7 +36,7 @@ public class Map{
             }
         }
         
-        while(numFar < 2){
+        while(numFar < 5){
             x = randomPos();
             y = randomPos();
             if(map[x][y].getName().equals("nothing")){
