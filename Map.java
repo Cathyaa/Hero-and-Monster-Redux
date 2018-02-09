@@ -252,7 +252,7 @@ public class Map{
     public boolean foundMon(int a, int b, boolean runAway){
         System.out.println("There is a trace of monster nearby");
         int num = (int)(2 * Math.random());
-        int strength = map[a][b].mon.str;
+        int strength = map[a][b].mon.getStr();
         runAway = false;
         boolean encounter;
         
