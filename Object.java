@@ -35,7 +35,7 @@ public class Object{
             boss2 = new Boss(50, 300, 5, 200);
         }
         else if(name.equals("Boss3")){
-            boss2 = new Boss(50, 500, 5, 1000);
+            boss3 = new Boss(50, 500, 5, 1000);
         }
     }
     
